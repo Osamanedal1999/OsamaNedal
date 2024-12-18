@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="manifest" href="/manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then((registration) => {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+<link rel="icon" href="/images/icon-192x192.png" type="image/png">
+<link rel="apple-touch-icon" href="/images/icon-192x192.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+    AOS.init();
+</script>
+<div data-aos="fade-up">
+    <h1>Welcome to Luxury Hotel</h1>
+</div>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa; /* لون خلفية فاتح */
+            color: #2d3436; /* لون نص داكن */
+            margin-top: 80px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #1d2635; /* لون داكن عصري */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 15px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .navbar-brand {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ecf0f1 !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #00b894 !important; /* تغيير اللون عند المرور */
+        }
+
+        /* Card Styling */
+        .card {
+            border: none;
+            border-radius: 20px;
+            background: #2f3640; /* لون داكن عصري */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+            background-color: #00b894; /* اللون الذي يظهر عند المرور */
+            color: #fff;
+        }
+
+        .card-title {
+            font-weight: bold;
+            font-size: 1.25rem;
+            color: #ecf0f1;
+        }
+
+        .card-text {
+            color: #bdc3c7;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #00b894;
+            border: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #55efc4;
+        }
+
+        /* Animations for the cards */
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background-color: #00b894;
+            color: #fff;
+        }
+
+        /* Text Container Animation */
+        .text-container {
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #bdc3c7;
+            margin-top: 40px;
+            animation: moveText 3s ease-in-out infinite;
+        }
+
+        @keyframes moveText {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2d3436;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* Image Styling */
+        .img-container {
+            margin-top: 50px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #1d2635; /* نفس لون الـ Navbar */
+            padding: 40px 0;
+            color: #ecf0f1;
+        }
+
+        footer a {
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-images img {
+            width: 80px;
+            height: 80px;
+            margin: 0 15px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .card {
+                margin-bottom: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Dr Nather Hotel</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">Rooms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Slider (Image Carousel) -->
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="images/Screenshot 2024-09-10 234528.png" class="d-block w-100" alt="Room 1">
+        </div>
+        <div class="carousel-item">
+            <img src="images/Screenshot 2024-09-10 234222.png" class="d-block w-100" alt="Room 2">
+        </div>
+        <div class="carousel-item">
+            <img src="images/img_mountains_wide.jpg" class="d-block w-100" alt="Room 3">
+        </div>
+    </div>
+</div>
+
+<!-- 12 Cards Section -->
+<section class="container mb-5">
+    <h2 class="section-title">Our Premium Rooms</h2>
+
+    <div class="row g-4" id="card-container">
+        <!-- First 4 Cards -->
+        <div class="col-md-3">
+            <div class="card visible">
+                <img src="images/Screenshot 2024-09-10 204124.png" class="card-img-top" alt="Room 1">
+                <div class="card-body">
+                    <h5 class="card-title">Oceanfront Deluxe</h5>
+                    <p class="card-text">Enjoy stunning ocean views from your private balcony with luxurious amenities.</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card visible">
+                <img src="images/Screenshot 2024-09-10 204153.png" class="card-img-top" alt="Room 2">
+                <div class="card-body">
+                    <h5 class="card-title">Garden Suite</h5>
+                    <p class="card-text">Relax in a spacious suite with a private garden and exclusive amenities.</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card visible">
+                <img src="images/Screenshot 2024-09-10 204219.png" class="card-img-top" alt="Room 3">
+                <div class="card-body">
+                    <h5 class="card-title">Mountain View Suite</h5>
+                    <p class="card-text">Bask in breathtaking mountain views from your private suite.</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card visible">
+                <img src="images/Screenshot 2024-09-10 204023.png" class="card-img-top" alt="Room 4">
+                <div class="card-body">
+                    <h5 class="card-title">Poolside Villa</h5>
+                    <p class="card-text">A private villa with its own pool and access to beachside paradise.</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="img-container">
+        <img src="images/Screenshot 2024-09-10 234222.png" alt="Hotel Image">
+    </div>
+
+    <div class="text-container">
+        <p>Our luxury hotel provides the best experience, with exceptional rooms and services that will make your stay unforgettable.</p>
+    </div>
+
+    <div class="row g-4">
+        <!-- 4 More Cards -->
+        <div class="col-md-3">
+            <div class="card visible">
+                <img src="images/Screenshot 2024-09-14 112723.png" class="card-img-top" alt="Room 5">
+                <div class="card-body">
+                    <h5 class="card-title">Beachfront Suite</h5>
+                    <p class="card-text">Stay steps away from the beach with exclusive luxury in every room.</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card visible">
+                <img src="images/Screenshot 2024-09-14 112822.png" class="card-img-top" alt="Room 6">
+                <div class="card-body">
+                    <h5 class="card-title">Skyline Suite</h5>
+                    <p class="card-text">Enjoy panoramic views of the city skyline from your luxurious suite.</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card visible">
+                <img src="images/Screenshot 2024-09-14 112832.png" class="card-img-top" alt="Room 7">
+                <div class="card-body">
+                    <h5 class="card-title">Penthouse</h5>
+                    <p class="card-text">The ultimate in luxury, with a private pool and terrace overlooking the city.</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card visible">
+                <img src="images/Screenshot 2024-09-10 204219.png" class="card-img-top" alt="Room 8">
+                <div class="card-body">
+                    <h5 class="card-title">Exclusive Suite</h5>
+                    <p class="card-text">A suite that combines elegance, comfort, and privacy.</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- Footer -->
+<footer class="text-center">
+    <div class="footer-images">
+        <img src="images/Screenshot 2024-09-14 113654.png" alt="Image 1">
+        <img src="images/Screenshot 2024-09-14 113628.png" alt="Image 2">
+        <img src="images/Screenshot 2024-09-14 113641.png" alt="Image 3">
+    </div>
+    <p>&copy; 2024 Luxury Hotel | All Rights Reserved</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
